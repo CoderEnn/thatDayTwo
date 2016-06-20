@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "82276B0FC79405E9368A6DEA55A94DDBB8CD66BC",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "82276B0FC79405E9368A6DEA55A94DDBB8CD66BC" : 0,
+    "BAD84651EC5B897DCE66D715096E14AA82526046" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "ACF5011B-A904-4E69-BF30-E078ADE6488C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "82276B0FC79405E9368A6DEA55A94DDBB8CD66BC" : "thatDay%E5%89%AF%E6%9C%AC\/",
+    "BAD84651EC5B897DCE66D715096E14AA82526046" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "thatDay",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "thatDay.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/CoderEnn\/thatDay.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "82276B0FC79405E9368A6DEA55A94DDBB8CD66BC"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/CoderEnn\/thatDayTwo.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "BAD84651EC5B897DCE66D715096E14AA82526046"
+    }
+  ]
+}
