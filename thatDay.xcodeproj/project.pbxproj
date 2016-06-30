@@ -35,7 +35,6 @@
 		3AFBD9DA1CDB753B0006F941 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AFBD9D91CDB753B0006F941 /* libz.tbd */; };
 		91182E491D153162001B46B8 /* ZDNetworking+weibo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91182E481D153162001B46B8 /* ZDNetworking+weibo.swift */; };
 		91182E4B1D1542E2001B46B8 /* userAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91182E4A1D1542E2001B46B8 /* userAccount.swift */; };
-		91182E4D1D1596CE001B46B8 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91182E4C1D1596CE001B46B8 /* LoginView.swift */; };
 		918774081D179717009C1445 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 918774071D179717009C1445 /* icon.png */; };
 		919616BA1D0D67B20074E419 /* ZDLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919616B91D0D67B20074E419 /* ZDLoginViewController.swift */; };
 		919616BD1D0D6D7A0074E419 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919616BC1D0D6D7A0074E419 /* UILabel+Extension.swift */; };
@@ -79,7 +78,6 @@
 		525C848648F136908A6200ED /* Pods_thatDay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_thatDay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		91182E481D153162001B46B8 /* ZDNetworking+weibo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ZDNetworking+weibo.swift"; sourceTree = "<group>"; };
 		91182E4A1D1542E2001B46B8 /* userAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userAccount.swift; sourceTree = "<group>"; };
-		91182E4C1D1596CE001B46B8 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		918774071D179717009C1445 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		919616B91D0D67B20074E419 /* ZDLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZDLoginViewController.swift; sourceTree = "<group>"; };
 		919616BC1D0D6D7A0074E419 /* UILabel+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
@@ -90,6 +88,7 @@
 		91A658501D092DC700FBE179 /* ZDNetworking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZDNetworking.swift; sourceTree = "<group>"; };
 		91A865981D042E6A00660CAC /* ddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ddViewController.h; sourceTree = "<group>"; };
 		91A865991D042E6A00660CAC /* ddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ddViewController.m; sourceTree = "<group>"; };
+		91ADB5901D242DB600D02F57 /* coredata 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "coredata 2.xcdatamodel"; sourceTree = "<group>"; };
 		9E3E621D85AAA8247569451C /* Pods-thatDay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-thatDay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-thatDay/Pods-thatDay.debug.xcconfig"; sourceTree = "<group>"; };
 		CF235FDC91971B1B35767EC6 /* Pods-thatDay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-thatDay.release.xcconfig"; path = "Pods/Target Support Files/Pods-thatDay/Pods-thatDay.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -248,7 +247,6 @@
 			isa = PBXGroup;
 			children = (
 				919616B91D0D67B20074E419 /* ZDLoginViewController.swift */,
-				91182E4C1D1596CE001B46B8 /* LoginView.swift */,
 			);
 			name = login;
 			sourceTree = "<group>";
@@ -393,7 +391,6 @@
 				3A8C83121CE2DA7000521EC1 /* coredata.xcdatamodeld in Sources */,
 				3AF9E71C1CCDBC4F0099F5C2 /* ViewController.swift in Sources */,
 				91A6584B1D09071400FBE179 /* ZDAVSCloudManager.swift in Sources */,
-				91182E4D1D1596CE001B46B8 /* LoginView.swift in Sources */,
 				91A658511D092DC700FBE179 /* ZDNetworking.swift in Sources */,
 				3A03A5481CE329D9003083B1 /* ZDCoreDataManager+Extension.swift in Sources */,
 				91A8659A1D042E6A00660CAC /* ddViewController.m in Sources */,
@@ -695,6 +692,7 @@
 		3A8C83101CE2DA7000521EC1 /* coredata.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				91ADB5901D242DB600D02F57 /* coredata 2.xcdatamodel */,
 				3A8C83111CE2DA7000521EC1 /* coredata.xcdatamodel */,
 			);
 			currentVersion = 3A8C83111CE2DA7000521EC1 /* coredata.xcdatamodel */;

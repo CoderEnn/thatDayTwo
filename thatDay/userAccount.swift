@@ -12,9 +12,11 @@ import UIKit
  */
 /// 用户账户 key
 private let ZDWeiBoUserAccountKey = "ZDWeiBoUserAccount"
-class userAccount: NSObject {
+private let ZDAVClassNamekey = "ZDAVClassName"
+var ZDAVClassName: String?
+class UserAccount: NSObject {
     /// 用户账户单例，全局入口
-    static let sharedUserAccount = userAccount()
+    static let sharedUserAccount = UserAccount()
     
     var access_token: String?
     var remind_in: String?
@@ -35,9 +37,11 @@ class userAccount: NSObject {
     }
     private override init() {
         super.init()
+        //在使用到账户信息的时候，就可以立马对token进行判断
+        loadUserAccount()
     }
 }
-extension userAccount {
+extension UserAccount {
     
     func updateUserAccount(dict: [String: AnyObject]){
         setValuesForKeysWithDictionary(dict)
@@ -46,12 +50,14 @@ extension userAccount {
     
     //保存账号信息
     func saveUserAccount(){
-        let keys = ["access_token", "expiresDate"]
+        let keys = ["access_token", "expiresDate", "uid"]
         let dict = dictionaryWithValuesForKeys(keys)
         NSUserDefaults.standardUserDefaults().setObject(dict, forKey: ZDWeiBoUserAccountKey)
+        ZDAVClassName = "thatday"+uid!
+        NSUserDefaults.standardUserDefaults().setObject(ZDAVClassName, forKey: ZDAVClassNamekey)
         NSUserDefaults.standardUserDefaults().synchronize()
     }
-    //加载用户信息
+    //加载账号信息
     func loadUserAccount(){
         guard let dict = NSUserDefaults.standardUserDefaults().objectForKey(ZDWeiBoUserAccountKey) as? [String: AnyObject] else {
             return
@@ -63,6 +69,7 @@ extension userAccount {
         }else {
             print("token正常")
         }
+        ZDAVClassName = NSUserDefaults.standardUserDefaults().objectForKey(ZDAVClassNamekey) as? String
     }
     override var description: String {
         let keys = ["access_token", "expiresDate"]

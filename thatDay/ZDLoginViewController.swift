@@ -23,31 +23,40 @@ class ZDLoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     // MARK: - 私有属性
-    private lazy var titleLabel: UILabel = UILabel(text: "thatDay")
-    private lazy var phoneField: UITextField = UITextField(placeholder: "请输入你的手机号")
-    private lazy var verifyCodeField: UITextField = UITextField(placeholder: "请输入验证码")
+    lazy var loginBtn: UIButton = {
+        let loginBtn = UIButton(type: .Custom)
+        loginBtn.backgroundColor = UIColor.yellowColor()
+        loginBtn.titleLabel?.numberOfLines = 3
+        loginBtn.titleLabel?.textAlignment = .Center
+        let lineH = loginBtn.titleLabel?.font.lineHeight
+        var attr: NSMutableAttributedString = NSMutableAttributedString(string: "使用微博登录\n")
+        let textA: NSTextAttachment = NSTextAttachment()
+        //textA.bounds = CGRectMake(20, -20, lineH!, lineH!)
+        textA.image = UIImage(named: "weibo")
+
+        var attr1 = NSAttributedString(attachment: textA)
+        attr.appendAttributedString(attr1)
+        loginBtn.setAttributedTitle(attr, forState: .Normal)
+        
+        loginBtn.sizeToFit()
+        loginBtn.center = self.view.center
+        //        loginBtn.bounds = CGRectMake(0, 0, 200, 200)
+        loginBtn.addTarget(self, action: #selector(ZDLoginViewController.login), forControlEvents: .TouchUpInside)
+        return loginBtn
+    }()
+    
+    // MARK: - target
+    @objc private func login(){
+        let nav: UINavigationController = UINavigationController(rootViewController: ProfileViewController())
+        self.presentViewController(nav, animated: true, completion: nil)
+    }
+
+
 }
 // MARK: - setupUI
 extension ZDLoginViewController {
-    func setupUI() {
+    func setupUI(){
         view.backgroundColor = UIColor.whiteColor()
-        view.addSubview(titleLabel)
-        view.addSubview(phoneField)
-        view.addSubview(verifyCodeField)
-        
-        titleLabel.snp_makeConstraints { (make) in
-            make.centerX.equalTo(self.view)
-            make.centerY.equalTo(self.view.snp_top).offset(30)
-        }
-        phoneField.snp_makeConstraints { (make) in
-            make.centerX.equalTo(self.view)
-            make.centerY.equalTo(titleLabel.snp_bottom).offset(100)
-        }
-//        verifyCodeField.snp_makeConstraints { (make) in
-//            make.centerX.equalTo(self.view)
-//            make.centerY.equalTo(<#T##other: CGFloat##CGFloat#>)
-//        }
-        
-        
+        view.addSubview(loginBtn)
     }
 }

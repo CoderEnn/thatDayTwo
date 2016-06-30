@@ -13,11 +13,8 @@ class ZDTabbarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-setupUI()
+        setupUI()
         
-        let login: LoginView = LoginView(frame: view.bounds)
-        view.addSubview(login)
-
     }
 
     override func didReceiveMemoryWarning() {

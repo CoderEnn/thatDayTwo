@@ -46,14 +46,14 @@ class HomeViewController: UITableViewController {
                 let vc = segue.destinationViewController as! NewEventViewController
                 vc.clouser = {person in
                     
-                    let object = AVObject(className: "Idd")
+                    let object = AVObject(className: ZDAVClassName)
 //                   let personArr = AVObject(className: "Pobek")
                     object.setObject(person.event, forKey: "event")
                     
                     object.setObject(person.lasting, forKey: "lasting")
                     
                     object.setObject(person.remind, forKey: "remind")
-                    
+                    object.setObject(UserAccount.sharedUserAccount.uid, forKey: "leancloudId")
 
                     object.saveInBackgroundWithBlock({ (_, error) in
                         if error == nil {
@@ -176,12 +176,13 @@ extension HomeViewController {
         let personE = fetchResultsController.fetchedObjects![indexPath.row]
         vc.person = personE as! ZDEventModel
         vc.clouser = {person in
-            let object = AVObject(className: "Idd", objectId: person.leancloudId)
+            let object = AVObject(className: ZDAVClassName, objectId: person.leancloudId)
             object.setObject(person.event, forKey: "event")
             
             object.setObject(person.lasting, forKey: "lasting")
             
             object.setObject(person.remind, forKey: "remind")
+            object.setObject(UserAccount.sharedUserAccount.uid, forKey: "leancloudId")
             print("object == \(object)")
             
             object.saveInBackgroundWithBlock({ (_, error) in

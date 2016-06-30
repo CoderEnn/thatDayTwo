@@ -17,13 +17,14 @@ extension ZDNetworking {
     }
  
     func loadAccessToken(code: String, finished: (result: [String: AnyObject]?)->()){
+        
         let parameters = ["client_id": appkey,
                     "client_secret": appSecret,
                     "grant_type": "authorization_code",
                     "code": code,
                     "redirect_uri": redirect_uri]
         let urlString = "https://api.weibo.com/oauth2/access_token"
-
+    
         request(.POST, parameters: parameters, urlString: urlString) { (result) in
             
             // result 是 token 的结果字典，是可选的！
@@ -36,8 +37,10 @@ extension ZDNetworking {
                     finished(result: nil)
                     return
             }
+            finished(result: result)
             print(result)
         }
+
     }
     
 }

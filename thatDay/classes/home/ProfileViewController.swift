@@ -13,24 +13,42 @@ class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        title = "第三方登录"
+        view.backgroundColor = UIColor.whiteColor()
         view.addSubview(webView)
         
         webView.frame = CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height)
+        navigationItem.leftBarButtonItem = cancleBarButton
+        webView.delegate = self
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    private lazy var webView: UIWebView = {
+    private  var webView: UIWebView = {
         let webView = UIWebView()
         let str = "https://api.weibo.com/oauth2/authorize?client_id=3486182173&redirect_uri=http://www.baidu.com"
         let url = NSURL(string: str)
         webView.loadRequest(NSURLRequest(URL: url!))
-        webView.delegate = self
+//        webView.delegate = self
         return webView
     }()
+    
+    private lazy var cancleBarButton: UIBarButtonItem = {
+        let cancleBarButton = UIBarButtonItem(title: "取消", style: .Plain, target: self, action: #selector(UMSocialIconActionSheet.dismiss))
+        return cancleBarButton
+    }()
+    // MARK: - target
+    @objc private func dismiss(){
+        SVProgressHUD.dismiss()
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    deinit {
+        print("xiao")
+    }
+
 }
 
 extension ProfileViewController: UIWebViewDelegate {
@@ -54,13 +72,23 @@ extension ProfileViewController: UIWebViewDelegate {
         let code = query.substringFromIndex("code=".endIndex)
         print("请求码 = \(code)")
         ZDNetworking.sharedTool.loadAccessToken(code) { (result) -> () in
+            print("的")
             guard let result = result else {
                 print("您的网络不给力")
                 return
             }
-            userAccount.sharedUserAccount.updateUserAccount(result)
+            UserAccount.sharedUserAccount.updateUserAccount(result)
+//            SVProgressHUD.showImage(UIImage(named: "red"), status: "denglu")
+            SVProgressHUD.showWithStatus("登录成功")
+            //这句代码又问题
+//            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(Double(NSEC_PER_SEC) * 5)), dispatch_get_main_queue()) {
+                SVProgressHUD.dismiss()
+                self.dismissViewControllerAnimated(true, completion: nil)
+                UIApplication.sharedApplication().keyWindow?.rootViewController = ZDTabbarController()
+//            }
+            
         }
-    return true
+    return false
     }
     func webViewDidFinishLoad(webView: UIWebView) {
         SVProgressHUD.dismiss()
